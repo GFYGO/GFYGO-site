@@ -62,6 +62,9 @@ function mian(){
     if (notice === 'none') {
     closeNotice(); // 如果通知信息为 "none"，则调用关闭通知的函数
     } 
+    else {
+    document.getElementById('get_return').innerText = notice; // 将通知信息更新到页面上
+    }
 }
 mian()
 
