@@ -19,7 +19,7 @@ function post(information) {
     fetch('http://localhost:81/', {
         method: 'POST',
         headers: information=>information.json(),
-        body: JSON.stringify(),
+        body: JSON.stringify(information),
     })
     .then(response => response.json())
     .then(data => {
@@ -33,12 +33,12 @@ function post(information) {
 
 //notice关闭按钮
 function closeNotice() {
-    notice.style.display = 'none'; // 隐藏
+    document.getElementById('notice').style.display = 'none'; // 隐藏
 }
 
 //////////////////////////////////////////////////页面代码//////////////////////////////////////////////////
-function handleNotice() {
-    data = get({'type':'notice'})
+async function handleNotice() {
+    let data = await get({'type':'notice'})
     var noticeElement = document.getElementById('notice');
 
     if (data.notice === "none") {
